@@ -1,0 +1,26 @@
+---
+- name: Bob
+  abilities:
+    - name: Ability X
+      - perks:
+        - name: Perk Y
+          level: N
+          cost: M               # Per level
+          description: Something goes here
+      - flaws:
+        - name: Flaw Y
+          level: O
+          cost: P               # Per level
+          description: Something goes here
+      - affinity: Something goes here
+  weaknesses:
+  combat:
+    defense:
+    health:
+    endurance:
+    tv:
+    attacks:
+  background:
+  appearance:
+  personality:
+  notes:

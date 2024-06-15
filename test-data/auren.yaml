@@ -1,0 +1,31 @@
+---
+- name: Auren
+  abilities:
+    - name: Armored
+      level: 1
+      label: Medieval Armor
+    - name: Attack
+      level: 3
+      label: "Sword & Sorcery"
+    - name: Combat Expert
+      level: 3
+    - name: Evasive
+      level: 2
+    - name: Knowledge
+      label: Magic
+      level: 4
+    - name: Magic, Arcane
+      - name: Mana Shield
+        - 
+        
+  weaknesses:
+  combat:
+    defense:
+    health:
+    endurance:
+    tv:
+    attacks:
+  background:
+  appearance:
+  personality:
+  notes:
