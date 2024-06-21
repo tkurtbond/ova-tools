@@ -49,10 +49,28 @@
       level: 2
     - name: Vigorous
       level: 2
-            
-            
-        
   weaknesses:
+    - name: Ageism
+      level: -1
+    - name: Arrogant
+      level: -1
+    - name: Code of Conduct
+      label: Protecting Women… Begrudingly
+      level: -2
+    - name: Hatred
+      lebel: Animals
+      level: -1
+    - name: Ineptitude
+      label: Modern Technology
+      level: -3
+    - name: Quirk
+      label: Antiquated Language
+      level: -1
+    - name: Quirk
+      label: Stranger in a Strange Land
+      level: -2
+    - name: Stubborn
+      level: -2
   combat:
     defense:
     health:
