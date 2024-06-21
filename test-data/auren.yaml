@@ -15,8 +15,42 @@
       label: Magic
       level: 4
     - name: Magic, Arcane
-      - name: Mana Shield
-        - 
+      - label: Mana Shield
+        endurance: 10
+        abilities:
+          - name: Barrier
+            level: 2
+      - label: Wings of Dezantis
+        endurance: 10
+        abilities:
+          - name: Flight
+            level: 2
+      - label: Feeblemind
+        endurance: 10
+        abilities:
+          - name: Intimidating
+            level: 2
+      - label: Breath
+        endurance: 10
+        abilities:
+          - name: Life Support
+            level: 2
+      - label: Hasten
+        edurance: 20
+        abilities:
+          - name: Quick
+            level: 3
+      - label: Atlas Arm
+        endurance: 20
+        abilities:
+          - name: Strong
+            level: 3
+    - name: Smart
+      level: 2
+    - name: Vigorous
+      level: 2
+            
+            
         
   weaknesses:
   combat:
