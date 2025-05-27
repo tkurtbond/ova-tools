@@ -72,10 +72,10 @@
     - name: Stubborn
       level: -2
   combat:
-    defense:
-    health:
-    endurance:
-    tv:
+    defense: 4
+    health: 40
+    endurance: 50
+    tv: 18
     attacks:
   background:
   appearance:
