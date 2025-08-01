@@ -1,75 +1,78 @@
 ---
+# Auren, p. 38–39, has Magic, Arcane, with 6 spells: Mana Shield, Wings of Dezantis, Feeblemind, Breath, Hasten, and Atlas Arm.
 - name: Auren
   abilities:
-    - name: Armored
+    - abilty: Armored
       level: 1
       label: Medieval Armor
-    - name: Attack
+    - abilty: Attack
       level: 3
       label: "Sword & Sorcery"
-    - name: Combat Expert
+    - ability: Combat Expert
       level: 3
-    - name: Evasive
+    - ability: Evasive
       level: 2
-    - name: Knowledge
+    - ability: Knowledge
       label: Magic
       level: 4
-    - name: Magic, Arcane
-      - label: Mana Shield
-        endurance: 10
-        abilities:
-          - name: Barrier
-            level: 2
-      - label: Wings of Dezantis
-        endurance: 10
-        abilities:
-          - name: Flight
-            level: 2
-      - label: Feeblemind
-        endurance: 10
-        abilities:
-          - name: Intimidating
-            level: 2
-      - label: Breath
-        endurance: 10
-        abilities:
-          - name: Life Support
-            level: 2
-      - label: Hasten
-        edurance: 20
-        abilities:
-          - name: Quick
-            level: 3
-      - label: Atlas Arm
-        endurance: 20
-        abilities:
-          - name: Strong
-            level: 3
-    - name: Smart
+    - ability: Magic, Arcane
+      level: 3
+      spells:
+        - spell: Mana Shield
+          endurance: 10
+          perks:
+            - perk: Barrier
+              level: 2
+        - spell: Wings of Dezantis
+          endurance: 10
+          perks:
+            - perk: Flight
+              level: 2
+        - spell: Feeblemind
+          endurance: 10
+          perks:
+            - perk: Intimidating
+              level: 2
+        - spell: Breath
+          endurance: 10
+          perks:
+            - name: Life Support
+              level: 2
+        - spell: Hasten
+          edurance: 20
+          perks:
+            - perk: Quick
+              level: 3
+        - spell: Atlas Arm
+          endurance: 20
+          perks:
+            - perk: Strong
+              level: 3
+    - abiltiy: Smart
       level: 2
-    - name: Vigorous
+    - ability: Vigorous
       level: 2
   weaknesses:
-    - name: Ageism
+    - weakness: Ageism
       level: -1
-    - name: Arrogant
+    - weakness: Arrogant
       level: -1
-    - name: Code of Conduct
+    - weakness: Code of Conduct
       label: Protecting Women… Begrudingly
       level: -2
-    - name: Hatred
+    - weakness: Hatred
       lebel: Animals
       level: -1
-    - name: Ineptitude
+    - weakness: Ineptitude
       label: Modern Technology
       level: -3
-    - name: Quirk
+    - weakness: Quirk
       label: Antiquated Language
       level: -1
-    - name: Quirk
+    - weakness: Quirk
       label: Stranger in a Strange Land
       level: -2
-    - name: Stubborn
+    - weakness: Stubborn
       level: -2
   combat:
     defense: 4
