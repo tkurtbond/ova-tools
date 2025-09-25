@@ -1,5 +1,6 @@
 ---
-# Auren, p. 38–39, has Magic, Arcane, with 6 spells: Mana Shield, Wings of Dezantis, Feeblemind, Breath, Hasten, and Atlas Arm.
+# Auren (OVA p. 38–39) has Magic, Arcane, with 6 spells: Mana Shield,
+# Wings of Dezantis, Feeblemind, Breath, Hasten, and Atlas Arm.
 - name: Auren
   abilities:
     - abilty: Armored
@@ -39,7 +40,7 @@
             - name: Life Support
               level: 2
         - spell: Hasten
-          edurance: 20
+          endurance: 20
           perks:
             - perk: Quick
               level: 3
