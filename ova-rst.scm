@@ -18,6 +18,11 @@
 (import (srfi 152))
 (import yaml)
 
+(define standard-input-port (current-input-port))
+
+(define *debugging* #t)
+
+
 (define-syntax dbg
   (syntax-rules ()
     ((_ e1 e2 ...)
@@ -42,7 +47,12 @@
           do (*output-formatter* entity entity-no))))
 
 (define (process-filename filename)
-  (with-input-from-file filename process-file))
+  (cond ((string=? filename "-")
+         (dbg (show (current-error-port) "Using standard input from filename -" nl))
+         (with-input-from-port standard-input-port process-file))
+        (else
+         (dbg (show (current-error-port) "Using filename " filename nl))
+         (with-input-from-file filename process-file))))
 
 ;; Command line flags go here.
 
@@ -79,9 +89,11 @@
   (receive (options operands) (args:parse (command-line-arguments)
                                           +command-line-options+)
     (define (process-operands)
-      (if  (zero? (length operands))
-           (with-input-from-port (current-input-port) process-file)
-           (loop for filename in operands do (process-filename filename))))
+      (cond  ((zero? (length operands))
+              (dbg (show (current-error-port) "zero arguments, so using standard input" nl))
+              (with-input-from-port standard-input-port process-file))
+             (else
+              (loop for filename in operands do (process-filename filename)))))
 
     (if *output-file*
         (with-output-to-file *output-file* process-operands)
