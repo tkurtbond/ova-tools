@@ -16,7 +16,7 @@
 (import matchable)
 (import (srfi 1))
 (import (srfi 152))
-(import yaml)
+(import yaml)                           ; The yaml egg uses libyaml, which is yaml 1.1.
 
 (define standard-input-port (current-input-port))
 
@@ -31,6 +31,7 @@
        (flush-output (current-error-port))))))
 
 (define (process-entity entity entity-no)
+  (dbg (show (current-error-port) nl "entity no: " entity-no nl (pretty entity) nl))
   #f)
 
 (define (process-entity-raw-ms entity entity-no)
