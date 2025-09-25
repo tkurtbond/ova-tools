@@ -1,3 +1,11 @@
 ---
-# Acacia has Magic, Witchcraft with three spells: Break, Impede, and Slow.
-# OVA, p. 134.
+# Acacia (OVA, p. 134) has Magic, Witchcraft with three spells: Break,
+# Impede, and Slow.
+- name: Acacia
+  abilities:
+  weaknesses:
+  combat:
+  background:
+  appearance:
+  personality:
+  notes:
