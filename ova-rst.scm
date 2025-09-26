@@ -76,7 +76,7 @@
             (h help) #:none "Display this text."
           (usage))
         (args:make-option
-            (m raw-ms-tables) #:none "Use groff tbl output in a raw ms block."
+            (m raw-ms-tables) #:none "Use groff tbl output in a raw ms block in reST output."
           (set! *output-formatter* process-entity-raw-ms))
         (args:make-option
             (o output) #:required "Output file."
