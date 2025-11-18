@@ -1,7 +1,16 @@
 ---
-- name: Bob
+- name: A Name
+  options:
+    base-zero: 5                # p. 21
+    power-ceiling: 15           # p. 21
+    # For Abilities and Weaknesses both: 1 costs1, 2 costs 2, 3 costs 4, 4 costs eight, 5 costs 15
+    scaled-cost: true
+    combined-effectiveness: true # Starting characters Abilities rarely give more than a +5 to any roll.
+    # Balanced Combat for New OVA GMs, §“Power Level and Progression”, p. 5, “Solid Characters with Serious Problems”.
+    # Abilites max 3, +20 total Ability levels, -15 total Weakness levels.
+    max-abilities-level: 3
   abilities:
-    - name: Ability X
+    - ability: Ability X
       - perks:
         - name: Perk Y
           level: N
