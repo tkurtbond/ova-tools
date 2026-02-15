@@ -1,0 +1,141 @@
+---
+# Fukiko (OVA p. 17–19 and p. 36−37).  She is the character used in
+# the step by step example of building a character on p. 17–19 and her
+# character write up and character sheet is on p. 36–37.  She has
+# Transformation with 4 Abilities and 1 Weakness.
+#
+# I wrote this thinking about calculating some values, like results of
+# perks and flaws.
+- name: Fukiko
+  abilities:
+    - ability: Companion (Azyrus)
+      level: 2
+    - ability: Cute!
+      level: 2
+    - ability: Iron-Willed
+      level: 1
+    - ability: Knowledge
+      level: 2
+      detail: Shoujo Mangao
+    - ability: Quick
+      level: 2
+    - ability: Shape-Shifter
+      level: 2
+    - ability: Transformation
+      level: 4
+      abilities:
+        - ability: Attack
+          level: +2
+        - ability: Barrier
+          level: +3
+          perks-and-flaws:
+            - Area Effect
+            - Elaborate Gestures
+        - ability: Combat Expert
+          level: +2
+        - ability: Healer
+          level: +2
+      weaknesses:
+        - name: Bizarre Appearance
+          level: -1
+          details: Cat Features
+  weaknesses:
+    - weakness: Ageism
+      level: -2
+    - weakness: Crybaby
+      level: -2
+    - weakness: Easily Distracted
+      level: -1
+    - weakness: Focus
+      level: -2
+      details: Powers Require Neko Transformation Locket
+    - weakness: Frail
+      level: -1
+    - weakness: Naive
+      level: -1
+  # Really, some of these should be calcualated.
+  combat:
+    defense: 4/5
+    health: 30
+    endurance: 40
+    threat-value: 12
+    attacks:
+      - name: Neko Neko Catnip Cantrip
+        perks-and-flaws:
+          - Ranged
+          - Affinity
+          - Love
+        description: |
+          In her magical girl form, Fukiko can perform a variety of
+          mystical attacks of love.
+      - name: Neko Neko Heart Burst
+  background: |
+    All little children dream of being like their most cherished
+    heroes. Fukiko was no different. Every day (except when there was
+    schoolwork or chores to be done), she would throw herself into the
+    fantastic imaginary worlds of her shoujo manga. Fighting evil!
+    Making friends! And maybe catching the attention of a handsome
+    male comrade. But that’s all they were: imaginary two-dimensional
+    illustrations trapped forever in the pages of her comic books.
+
+    But sometimes, dreams come true.  One night while gazing at the
+    stars out- side her window, as she loved to do, Fukiko was shocked
+    to encounter a strange cat.  Not just any cat, but a white cat
+    with pink feathery wings. Though finding a creature like this on
+    her window sill was more than a little unusual, Fukiko’s cu-
+    riosity overcame her apprehension. She opened the window. The
+    feline’s peculiar avian nature was only the beginning of a slew of
+    strange surprises. The cat spoke to her, revealing himself to be
+    Azyrus. As if this weren’t enough, Azyrus continued to explain
+    that Fukiko’s mother, who died when she was too young to remember,
+    was a magical crime fighter. The stories were so remarkably
+    similar to her manga that Fukiko could hardly believe her ears.
+    Despite being overwhelmed, she listened attentively to Azyrus as
+    he continued his explanations. Her locket, a keepsake from her
+    mother, was also the key to her mother’s power. Though Azyrus, as
+    well as Fukiko’s mother, had hoped this power would never be
+    needed again, that would not be the case. And so the young heroine
+    Lovely Savior Myu Myu was born. But the story had just begun…
+  appearance:
+  personality: |
+    Fukiko is strong-willed and naive, expect- ing the world to play
+    by her definition of the rules. This blind faith is also her
+    strength, giving her the ability to see the good in bad and to
+    persevere against all odds. Even so, her childish nature can lead
+    to a bit of whining from time to time.
+  notes:
+    - header: Lovely Saivior Myu Myu
+      text: |
+        Whenever Fukiko clutches her locket and shouts “Lovely Savior
+        Transformation,” she becomes her kitty cat crime-fighting
+        form. Her locket transforms into a collar with a bell, and the
+        rest of her attire changes into her pretty little Myu Myu
+        costume.  Of course, even villians will wait through the
+        lengthy transformation sequence before continuing any battle.
+        Must be the catchy music and the flashing lights.  She can
+        also use this power to just change her apppearance, but she
+        cannot use Shape-Shifter and Transformation simultaneously.
+    - header: Azyrus
+      text: |
+        Despite his cute a fuzzy exterior, Azyrus is always ready
+        with sage advice for Fukiko.  He can often be exasperated
+        with her youthful naivete, but his heart is in the right
+        place—even when his mouth isn't.
+      attributes: |
+        Flight +2, Quick + 1, Smart + 2; Awkward Size (Small) −1,
+        Frail −1, Short-Tempered −1
+  fluff:
+    concept: Magical Meow Meow Girl
+    birthday: July 26
+    age: 12
+    gender: Female
+    height: 4′10″
+    weight: 85 lbs.
+    hair: Blonde
+    eyes: Blue
+    association: Middle School
+    hobbies: Shoujo Manga
+    favorite-food: Chocolate
+    allies: Azyrus
+    enemies: Sinister Folk and Their Minions™
+...

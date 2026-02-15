@@ -1,16 +1,17 @@
 # -*- yaml -*-
 # Add a YAML outline of the suggested fluff from OVA, p. 20.
   fluff:
-    concept: A few words describing your character
-    age: How old your character is
-    gender: as appropriate
-    height: How tall your character is
-    weight: How much your character weighs
-    hair-color: Color of your character’s hair-color
-    eye-color: Color of your character’s eyes
-    association: What group your character belongs to
-    hobbies: What your character likes to do
-    favorite-food: What your character loves to eat
-    allies: Your character’s companions
-    enemies: Those your character aims to defeat, best, or destroy (or vice versa)
-    love-interests: Who your character loves or is loved by
+    concept:                   # A few words describing your character
+    birthday:                  # Month and day
+    age:                       # How old your character is
+    gender:                    # as appropriate
+    height:                    # How tall your character is
+    weight:                    # How much your character weighs
+    hair:                      # Color of your character’s hair
+    eyes:                       # Color of your character’s eyes
+    association:               # What group your character belongs to
+    hobbies:                   # What your character likes to do
+    favorite-food:             # What your character loves to eat
+    allies:                    # Your character’s companions
+    enemies:                   # Those your character aims to defeat, best, or destroy (or vice versa)
+    love-interests:            # Who your character loves or is loved by
