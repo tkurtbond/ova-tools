@@ -1,0 +1,53 @@
+@SysInclude { tbl }
+@SysInclude { doc }
+@Doc @Text @Begin
+@LP
+@FullWidthRule //
+3.5i @Wide @Tbl
+  marginabove { 0.05i }
+  marginbelow { 0.0i }
+  bformat { @StartHSpan @Cell @B A | @HSpan }
+  aformat { @Cell indent { align } A | @Cell B }
+{
+  @Rowb A { Abilities }
+  @Rowa # ruleabove { yes }
+        A {+2^} B {Companion (Azyrus)}
+  @Rowa A {+2^} B {Cute!}
+  @Rowa A {+1^} B {Iron-Willed}
+  @Rowa A {+2^} B {Knowledge (Shoujo Manga)}
+  @Rowa A {+2^} B {Quick}
+  @Rowa A {+2^} B {Shape-Shifter}
+  @Rowa # rulebelow { yes }
+        A {+4^} B {
+    Transformation //
+    @Tbl
+      marginabove { 0.05i }
+      marginbelow { 0.0i }
+      aformat { @Cell indent { align } A | @Cell B }
+    {
+    @Rowa A {+2^} B { Attack }
+    @Rowa A {+3^} B { Barrier (Area Effect; Eloboarte Gestures; 5 End) }
+    @Rowa A {+2^} B { Combat Expert }
+    @Rowa A {+2^} B { Healer }
+    @Rowa A {-1^} B { Bizarre Appearance (Cat Features) }
+    }
+  }
+  @Rowa A { +15^ } B { @B {Total Ability Levels} }
+} ||
+3.5i @Wide @Tbl
+  marginabove { 0.05i }
+  marginbelow { 0.0i }
+  aformat { @Cell indent { align } A | @Cell B }
+  bformat { @StartHSpan @Cell @B A | @HSpan }
+{
+  @Rowb A { Weaknesses }
+  @Rowa A {-2^} B { Ageism }
+  @Rowa A {-2^} B { Crybaby }
+  @Rowa A {-1^} B { Easily Distracted }
+  @Rowa A {-2^} B { Focus (Powers Require Neko Transformation Locket) }
+  @Rowa A {-1^} B { Frail }
+  @Rowa A {-1^} B { Naive }
+  @Rowa A {-9^} B { @B {Total Weakness Levels}  }
+} //
+@FullWidthRule
+@End @Text
