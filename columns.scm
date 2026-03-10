@@ -64,6 +64,7 @@
 (loop for item
       in (map (lambda (x) (show #f (with ((width 40)) (wrapped (cadr x))))) weaknesses) collect (string-count item (lambda (c) (char=? c #\newline))))
 
+;; Hangs.
 (loop with lengths = '()
       with others = '()
       for item in
@@ -74,7 +75,6 @@
 
 
 (define l (map (lambda (x) (show #f (with ((width 40)) (wrapped (cadr x))))) weaknesses))
-
 l
 
 (define (tryit l1 l2)
