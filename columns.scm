@@ -52,7 +52,7 @@
                   "|" (joined displayed (map (lambda (x) (cadr x)) weaknesses) "\n")
                   "|"))
 
-;; This works
+;; This outputs a working HTML table.
 (show #t
       "<table>\n"
       "<tr><th>Lvl</th><th>Attributes</th><th>Lvl</th><th>Weaknesses</th></tr>\n"
