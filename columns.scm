@@ -52,6 +52,17 @@
                   "|" (joined displayed (map (lambda (x) (cadr x)) weaknesses) "\n")
                   "|"))
 
+;; This works
+(show #t
+      "<table>\n"
+      "<tr><th>Lvl</th><th>Attributes</th><th>Lvl</th><th>Weaknesses</th></tr>\n"
+      (tabular "<tr><td>" (joined displayed (map (lambda (x) (car x)) abilities) "\n")
+               "</td><td>" (joined displayed (map (lambda (x) (cadr x)) abilities) "\n")
+               "</td><td>" (joined displayed (map (lambda (x) (car x)) weaknesses) "\n")
+               "</td><td>" (joined displayed (map (lambda (x) (cadr x)) weaknesses) "\n")
+               "</td></tr>")
+      "</table>\n")
+
 (map (lambda (x) (show #f (with ((width 20)) (wrapped (cadr x))))) weaknesses)
 
 
