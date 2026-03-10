@@ -1,3 +1,5 @@
+;;; I think this has proved that monadic formatting can't do what I want.
+
 (import (scheme))
 
 (import (chicken base))
@@ -29,14 +31,30 @@
 
 
 
+(define transformation
+  '(("+2" "Attack")
+    ("+3" "Barrier (AREA EFFECT; ELOBORATE GESTURES; 5 END)")
+    ("+2" "Combat Expert")
+    ("+2" "Healer")
+    ("-1" "Bizarre Appearance (Cat Features)")))
+
 (define abilities
-  '(("+2" "Companion (Azyrus)")
+  `(("+2" "Companion (Azyrus)")
     ("+2" "Cute!")
     ("+1" "Iron-Willed")
     ("+2" "Knowledge (Shoujo Manga)")
     ("+2" "Quick")
     ("+2" "Shape-Shifter")
-    ("+4" "Transformation")))
+    ("+4" ,(string-append "Transformation" "\n"
+                          (show #f
+                                (with ((width 20))
+                                  "<table>\n"
+                                  (columnar "<tr><td>" (joined displayed (map (lambda (x) (car x)) transformation) "\n")
+                                            "</td><td>" (joined displayed (map (lambda (x) (cadr x)) transformation) "\n")
+                                            "</td></tr>")
+                                  "</table>\n"))))))
+
+(display (cadr (list-ref abilities 6)))
 
 (define weaknesses
   '(("-2" "Ageism")
@@ -54,14 +72,15 @@
 
 ;; This outputs a working HTML table.
 (show #t
+      (with ((width 20))
       "<table>\n"
-      "<tr><th>Lvl</th><th>Attributes</th><th>Lvl</th><th>Weaknesses</th></tr>\n"
-      (tabular "<tr><td>" (joined displayed (map (lambda (x) (car x)) abilities) "\n")
-               "</td><td>" (joined displayed (map (lambda (x) (cadr x)) abilities) "\n")
-               "</td><td>" (joined displayed (map (lambda (x) (car x)) weaknesses) "\n")
-               "</td><td>" (joined displayed (map (lambda (x) (cadr x)) weaknesses) "\n")
-               "</td></tr>")
-      "</table>\n")
+      "<tr><th>Lvl<th><th>Attributes</th><th>Lvl</th><th>Weaknesses</th></tr>\n"
+      (columnar "<tr><td>" (joined displayed (map (lambda (x) (car x)) abilities) "\n")
+                "</td><td>" (joined displayed (map (lambda (x) (cadr x)) abilities) "\n")
+                "</td><td>" (joined displayed (map (lambda (x) (car x)) weaknesses) "\n")
+                "</td><td>" (joined displayed (map (lambda (x) (cadr x)) weaknesses) "\n")
+                "</td></tr>")
+      "</table>\n"))
 
 (map (lambda (x) (show #f (with ((width 20)) (wrapped (cadr x))))) weaknesses)
 
