@@ -1,4 +1,22 @@
-;;; I think this has proved that monadic formatting can't do what I want.
+;;; I think this has proved that monadic formatting can't generate the correct HTML tables..
+;;;
+;;; Specifically, for HTML, its columns divide things into characters
+;;; and lines, but recursive OVA things like Magic (Arcane and
+;;; Witchcraft), Transformation, and so forth need cells that can
+;;; contain tables.  What I got, rather than one <tr> that contains a
+;;; table, is one <tr> for each line inn the subtable.  Sigh.
+
+;;; For text output, it has no way to handle subtables, and if you try
+;;; to wrap things, the costs get out of sync with the descriptions,
+;;; since the wrapping adds extra lines to the descriptions.  Notice
+;;; that the +2 from Tough ends up on the first line of the
+;;; Tranformation definition, and the -1 from Frail ends up on the
+;;; first line of the wrapped Focus entry, while the -2 from Naive
+;;; ends up on Frail.
+
+;;; Possibly I could check the attributes and weaknesses for
+;;; descriptions that have multiple lines, and add padding empty cells
+;;; to the costs.
 
 (import (scheme))
 
@@ -31,6 +49,7 @@
 
 
 
+(begin                                  ; HTML
 (define transformation
   '(("+2" "Attack")
     ("+3" "Barrier (AREA EFFECT; ELOBORATE GESTURES; 5 END)")
@@ -52,7 +71,9 @@
                                   (columnar "<tr><td>" (joined displayed (map (lambda (x) (car x)) transformation) "\n")
                                             "</td><td>" (joined displayed (map (lambda (x) (cadr x)) transformation) "\n")
                                             "</td></tr>")
-                                  "</table>\n"))))))
+                                  "</table>\n"))))
+    ("+2" "Tough")
+    ))
 
 (display (cadr (list-ref abilities 6)))
 
@@ -62,13 +83,7 @@
     ("-1" "Easily Distracted")
     ("-2" "Focus (Powers Require Neko Transformation Locket)")
     ("-1" "Frail")
-    ("-1" "Naive")))
-
-(show #t (tabular "|" (joined displayed (map (lambda (x) (car x)) abilities) "\n")
-                  "|" (joined displayed (map (lambda (x) (cadr x)) abilities) "\n")
-                  "|" (joined displayed (map (lambda (x) (car x)) weaknesses) "\n")
-                  "|" (joined displayed (map (lambda (x) (cadr x)) weaknesses) "\n")
-                  "|"))
+    ("-2" "Naive")))
 
 ;; This outputs a working HTML table.
 (show #t
@@ -81,6 +96,43 @@
                 "</td><td>" (joined displayed (map (lambda (x) (cadr x)) weaknesses) "\n")
                 "</td></tr>")
       "</table>\n"))
+)
+
+(begin                                  ; Text
+(define transformation
+  '(("+2" "Attack")
+    ("+3" "Barrier (AREA EFFECT; ELOBORATE GESTURES; 5 END)")
+    ("+2" "Combat Expert")
+    ("+2" "Healer")
+    ("-1" "Bizarre Appearance (Cat Features)")))
+
+(define abilities
+  `(("+2" "Companion (Azyrus)")
+    ("+2" "Cute!")
+    ("+1" "Iron-Willed")
+    ("+2" "Knowledge (Shoujo Manga)")
+    ("+2" "Quick")
+    ("+2" "Shape-Shifter")
+    ("+4" ,(string-append "Transformation" "\n"
+                          (show #f
+                                  (tabular " " (joined displayed (map (lambda (x) (car x)) transformation) "\n")
+                                           " " (joined displayed (map (lambda (x) (cadr x)) transformation) "\n")
+                                           " "))))
+    ("+2" "Tough")
+    ))
+
+
+(pp abilities)
+
+(display (cadr (list-ref abilities 6)))
+
+(define weaknesses
+  '(("-2" "Ageism")
+    ("-2" "Crybaby")
+    ("-1" "Easily Distracted")
+    ("-2" "Focus (Powers Require Neko Transformation Locket)")
+    ("-1" "Frail")
+    ("-2" "Naive")))
 
 (map (lambda (x) (show #f (with ((width 20)) (wrapped (cadr x))))) weaknesses)
 
@@ -88,8 +140,16 @@
 (show #t (tabular "|" (joined displayed (map (lambda (x) (car x)) abilities) "\n")
                   "|" (joined displayed (map (lambda (x) (cadr x)) abilities) "\n")
                   "|" (joined displayed (map (lambda (x) (car x)) weaknesses) "\n")
+                  "|" (joined displayed (map (lambda (x) (cadr x)) weaknesses) "\n")
+                  "|"))
+
+(show #t (tabular "|" (joined displayed (map (lambda (x) (car x)) abilities) "\n")
+                  "|" (joined displayed (map (lambda (x) (cadr x)) abilities) "\n")
+                  "|" (joined displayed (map (lambda (x) (car x)) weaknesses) "\n")
                   "|" (joined displayed (map (lambda (x) (show #f (with ((width 40)) (wrapped (cadr x))))) weaknesses) "\n")
                   "|"))
+)
+
 
 (loop for item
       in (map (lambda (x) (show #f (with ((width 40)) (wrapped (cadr x))))) weaknesses) collect (string-count item (lambda (c) (char=? c #\newline))))
