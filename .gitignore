@@ -5,3 +5,8 @@
 .~*\#
 \#*\#
 build/**
+
+# This is the lout database for this document, and it always gets
+# built in the directory with the source.
+
+Fukiko-experiment.lout.ld

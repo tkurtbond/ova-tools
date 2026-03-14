@@ -21,7 +21,9 @@ NATIVEOUTPUT=$(foreach f,$(notdir $(TESTDATA)),build/$(addsuffix .native,$(basen
 HTMLOUTPUT=$(foreach f,$(notdir $(TESTDATA)),build/$(addsuffix .html,$(basename $(f) .yaml))) $(foreach f,$(notdir $(TESTDATA)),build/$(addsuffix -ms.html,$(basename $(f) .yaml)))
 YAMLERROUTPUT=$(foreach f,$(notdir $(TESTDATA)),build/$(addsuffix .yamlerr,$(basename $(f) .yaml)))
 
-all: build $(PROGRAMS)
+LOUTOUTPUT=build/Fukiko-experiment.lout.pdf
+
+all: build $(PROGRAMS) $(LOUTOUTPUT)
 
 #$(wildcard build/*.gen.rst): build/ovagen
 
@@ -45,11 +47,13 @@ ms: test $(MSOUTPUT)
 
 html: test $(HTMLOUTPUT)
 
+lout: test $(LOUTOUTPUT)
+
 yamlerr: $(YAMLERROUTPUT)
 
 clean:
 	-rm -v $(PROGRAMS) build/*.gen.rst build/*.stmt.ms.pdf build/*.native \
-		build/*.stmt.ms build/*.html build/*.yamlerr
+		build/*.stmt.ms build/*.html build/*.yamlerr Fukiko-experiment.lout.ld
 
 BINDIR=$(HOME)/local/bin
 install: $(foreach e,$(PROGRAMS:%=%$(EXE)),$(BINDIR)/$(notdir $(e)))
@@ -92,6 +96,9 @@ build/%.native : build/%.gen.rst
 
 build/%.html : build/%.gen.rst
 	pandoc -s -r rst -w html -o $@ $<
+
+build/%.lout.pdf : %.lout
+	(cd build && lout -a ../$< | ps2pdf - $(notdir $@))
 
 build:
 	mkdir build
