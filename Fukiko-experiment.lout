@@ -2,6 +2,7 @@
 @SysInclude { doc }
 @Doc @Text @Begin
 @LP
+@CurveBox @Begin
 @FullWidthRule //
 3.5i @Wide @Tbl
   marginabove { 0.05i }
@@ -26,10 +27,10 @@
       aformat { @Cell indent { align } A | @Cell B }
     {
     @Rowa A {+2^} B { Attack }
-    @Rowa A {+3^} B { Barrier (Area Effect; Eloboarte Gestures; 5 End) }
+    @Rowa A {+3^} B { Barrier (Area Effect; Eloborate Gestures; 5 End) }
     @Rowa A {+2^} B { Combat Expert }
     @Rowa A {+2^} B { Healer }
-    @Rowa A {-1^} B { Bizarre Appearance (Cat Features) }
+    @Rowa A {{@Sym minus}1^} B { Bizarre Appearance (Cat Features) }
     }
   }
   @Rowa A { +15^ } B { @B {Total Ability Levels} }
@@ -41,13 +42,15 @@
   bformat { @StartHSpan @Cell @B A | @HSpan }
 {
   @Rowb A { Weaknesses }
-  @Rowa A {-2^} B { Ageism }
-  @Rowa A {-2^} B { Crybaby }
-  @Rowa A {-1^} B { Easily Distracted }
-  @Rowa A {-2^} B { Focus (Powers Require Neko Transformation Locket) }
-  @Rowa A {-1^} B { Frail }
-  @Rowa A {-1^} B { Naive }
-  @Rowa A {-9^} B { @B {Total Weakness Levels}  }
+  @Rowa A {{@Sym minus}2^} B { Ageism }
+  @Rowa A {{@Sym minus}2^} B { Crybaby }
+  @Rowa A {{@Sym minus}1^} B { Easily Distracted }
+  @Rowa A {{@Sym minus}2^} B { Focus (Powers Require Neko Transformation Locket) }
+  @Rowa A {{@Sym minus}1^} B { Frail }
+  @Rowa A {{@Sym minus}1^} B { Naive }
+  @Rowa A {{@Sym minus}9^} B { @B {Total Weakness Levels}  }
 } //
-@FullWidthRule
+@FullWidthRule //0.5v
+@B {Total Levels: +6}
+@End @CurveBox
 @End @Text
