@@ -14,12 +14,12 @@
       - perks:
         - name: Perk Y
           level: N
-          cost: M               # Per level
+          cost: M               # Total
           description: Something goes here
       - flaws:
         - name: Flaw Y
           level: O
-          cost: P               # Per level
+          cost: P               # Total
           description: Something goes here
       - affinity: Something goes here
   weaknesses:
