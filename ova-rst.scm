@@ -51,15 +51,16 @@
         (die 2 "Unable to find " (written item) " in " (written alist)))))
 
 (define (may-exist item alist)
+  (dbg (show (current-error-port) "*** may-exist called with " (pretty item) " and " (pretty alist) nl))
   (let ((result (assoc item alist)))
-    (if result
+    (if (not (null? result))
         (cdr result)
         result)))
 
-(define (rbold text) (string-append "**" text "**")) ; reST bold
-(define (ritalic text) (string-append "*" text "*")) ; reST italic
-(define (tbold text) (string-append "\\fB" text "\\fP")) ; troff bold
-(define (titalic text) (string-append "\\fI" text "\\fP")) ; troff italic
+(define (rbold . args) (each "**" (each-in-list args) "**")) ; reST bold
+(define (ritalic . args) (each "*" (each-in-list args) "*")) ; reST italic
+(define (tbold . args) (each "\\fB" (each-in-list args) "\\fP")) ; troff bold
+(define (titalic . args) (each "\\fI" (each-in-list args) "\\fP")) ; troff italic
 
 (define (process-entity entity entity-no)
   (dbg (show (current-error-port) nl "entity no: " entity-no nl (pretty entity) nl))
@@ -89,10 +90,12 @@
   ;; **Defense 3**, **Health 30**, **Endurance 40**.
   ;; **Attacks**
   (define (process-attribute attribute)
+    (dbg (show (current-error-port) "*** process-attribute called"  nl))
     (let ((name (must-exist "name" attribute))
           (level (must-exist "level" attribute)))
       (show #f name " " (numeric level #f #f #t))))
 
+  (dbg (show (current-error-port) "*** process-entity-terse called with entity " (pretty entity) nl))
   (let* ((abilities-total 0)
          (abilities (may-exist "abilities" entity))
          (abilities-total (if abilities (loop for ability in abilities sum (must-exist "level" ability)) 0))
@@ -121,7 +124,7 @@
     ))
 
 (define (process-file)
-  ;;; It is a file of possibly multiple entities.
+  ;;; 
   (let ((entities (yaml-load (current-input-port))))
     (loop for entity in entities
           for entity-no from 1
